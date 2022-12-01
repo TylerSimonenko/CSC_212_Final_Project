@@ -35,7 +35,7 @@ void badCharHeuristic( char *str , int size , int badchar[NO_OF_CHARS] )
     if( j<0)
     { 
       co++;
-      cout<<"Number of matches of \""<<pat<<"\" is "<<cou<<endl;
+      cout<<"Th number of matches of \""<<pat<<"\" is "<<cou<<endl;
     cou=0;
     };
       
