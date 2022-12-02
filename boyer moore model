@@ -42,3 +42,10 @@ void badCharHeuristic( char *str , int size , int badchar[NO_OF_CHARS] )
      else
      s += (s+m < n)? m-badchar[txt[s+m]] : 1;
      }
+     using namespace std;
+     int main()
+     { using namespace std
+      std::ifstream file;
+    file.open("testfile.txt");
+    
+    file.getline(txt),
