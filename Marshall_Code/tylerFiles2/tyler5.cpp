@@ -31,8 +31,9 @@ std::vector<char> proj::getPhrase() {
 
     std::cout << std::endl << "Enter the phrase you're looking for" << std::endl;
     std::getline(std::cin >> std::ws, strPhrase);
-
-    copy(strPhrase.begin(), strPhrase.end(), back_inserter(phrase)); //adds the string to the back of the char vector
+    
+    //adds the string to the back of the char vector
+    copy(strPhrase.begin(), strPhrase.end(), back_inserter(phrase)); 
 
     return phrase;
 }
@@ -197,7 +198,7 @@ void proj::boyerMoore(std::vector<char>& text, std::vector<char>& search) {
 }
 
 
-// NAIVE METHOD     (Need to include this)
+// NAIVE METHOD 
 void proj::naive(std::vector<char> text, std::vector<char> search) { 
 
     std::cout << std::endl << "Naive Method: " << std::endl;
@@ -255,7 +256,8 @@ void proj::replace(std::vector<char>& text, std::vector<int> foundIndex, std::ve
 
             std::getline(std::cin >> std::ws, newPhrase);
 
-            copy(newPhrase.begin(), newPhrase.end(), back_inserter(nextPhrase)); //adds the string to the back of the char vector
+	    //adds the string to the back of the char vector
+            copy(newPhrase.begin(), newPhrase.end(), back_inserter(nextPhrase)); 
 
             std::cout << std::endl;
             for (int i = 0; i < foundIndex.size(); i++) {
