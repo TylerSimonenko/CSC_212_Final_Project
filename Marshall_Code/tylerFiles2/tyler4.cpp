@@ -285,5 +285,5 @@ void badCharHeuristic(std::vector<char>& search, int size, int badchar[256]) {
 
     for (i = 0; i < size; i++)
         badchar[(int)search[i]] = i;
-}
+};
 
