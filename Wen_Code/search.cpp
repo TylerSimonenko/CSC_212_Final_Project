@@ -48,3 +48,28 @@ void search(char pat[], char txt[], int q)
         }
     }
 }
+void search{ char *txt, char *pat}
+ {  
+    int m = strlen(pat);
+ 
+    int n = strlen(txt);
+    
+    inr badchar[NO_OF_CHARS];
+    
+    badCharHeuristic(pat, m, badchar);
+    }
+    int s=0;
+    while( s <=(n-m)) 
+    { int j = m-1;
+    while(j >= 0 && pat[j] == txt[s+j])
+            j--;
+    if( j<0)
+    { 
+      co++;
+      cout<<"Th number of matches of \""<<pat<<"\" is "<<cou<<endl;
+    cou=0;
+    };
+      
+     else
+     s += (s+m < n)? m-badchar[txt[s+m]] : 1;
+     }
