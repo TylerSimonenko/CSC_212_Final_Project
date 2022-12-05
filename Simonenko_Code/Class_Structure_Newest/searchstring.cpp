@@ -109,7 +109,7 @@ void searchstring::naive() {
         if (j == m_ss) {
 
             // Push index value into "m_NIdx"
-            m_NIdx.push_back(i + 1);
+            m_NIdx.push_back(i);
             count++;
 
         }
@@ -166,7 +166,7 @@ void searchstring::rabinKarp() {
             if (j == m_ss) {
 
                 // Push index "i" to vector "location"
-                m_RKIdx.push_back(i + 1);
+                m_RKIdx.push_back(i);
                 count++;
 
             }
@@ -224,7 +224,7 @@ void searchstring::boyerMoore() {
         if (j < 0) {
 
             // Add "s" value to location vector
-            m_BMIdx.push_back(s + 1);
+            m_BMIdx.push_back(s);
             count++;
 
             // Shift "s" so that next character in text aligns with the last occurrence within search
@@ -283,7 +283,7 @@ void searchstring::print(int count, std::vector<int> indexes) {
         for (unsigned int i = 0; i < indexes.size(); i++) {
 
             // Print formatting
-            if (i + 1 != indexes.size()) {
+            if (i != indexes.size() - 1) {
                 std::cout << indexes[i] << ", ";
             }
             else {
@@ -306,30 +306,62 @@ void searchstring::replace() {
     if (m_NIdx.size() > 0 && m_RKIdx.size() > 0 && m_BMIdx.size() > 0) {
         
         // Print statement, take input
-        std::cout << "\r\nWould you like to replace this phrase in the '.txt' file?\r\nType 'yes' or 'no' below:" << std::endl;
-        std::cin >> yesNo;
+        std::cout << "\r\nWould you like to replace every instance of the search phrase in the given '.txt' file?\r\nType 'yes' or 'no' below:" << std::endl;
+        std::getline(std::cin, yesNo);
 
         // YES
         if (yesNo == "yes") {
-            
-            // Replacement phrase
-            std::string phrase;
-            std::vector<char> replacement;
+
+            // DELETE PHRASE FROM TEXT VECTOR        
+            int count = 0;
+
+            // Iterate through found index vector
+            for (unsigned int i = 0; i < m_RKIdx.size(); i++) {
+
+                // Erase the occurrence of the search phrase
+                m_text.erase(m_text.begin() + m_RKIdx[i], m_text.begin() + m_RKIdx[i] + m_ss);
+
+                // Recalculate index values to account for vector "shrinking" due to erasure
+                if (i < m_RKIdx.size() - 1) {
+
+                    // New index is now (previous index) - (size of deleted phrase)
+                    for (unsigned int j = 1 + count; j < m_RKIdx.size(); j++) {
+                        m_RKIdx[j] -= m_ss;         // Updated indexes for replacement!
+                    }
+
+                    // Step count so the for loop above edits only the subsequent indexes
+                    count++;
+
+                }
+            }
 
             // User input replacement phrase
+            count = 0;
+            std::string phrase;
             std::cout << "Enter the replacement phrase: " << std::endl;
             std::getline(std::cin, phrase);
 
             // Copy user input into vector "replacement"
+            std::vector<char> replacement;
             replacement.insert(replacement.end(), phrase.begin(), phrase.end());
+            int rs = replacement.size();                    // Size of the replacement phrase
 
-            // DELETE
-            // Delete the contents of m_text starting at index (m_RKIdx) to (m_RKIdx + m_ss) for every index in m_RKIdx 
+            // INSERT PHRASE FROM USER TO TEXT
+            for (unsigned int i = 0; i < m_RKIdx.size(); i++) {
+                m_text.insert(m_text.begin() + m_RKIdx[i], replacement.begin(), replacement.end());
+                if (i < m_RKIdx.size()) {
+                    for (unsigned int j = 1 + count; j < m_RKIdx.size(); j++) {
+                        m_RKIdx[j] += rs;
+                    }
+                    count++;
+                }
+            }
 
-            // INSERT
-            // Insert contents of vector "replacement" into m_text at each index of m_RKIdx 
+            // Change index values of newline prints (For writeFile Function)
+            changeNewline(rs);
 
         }
+
 
         // NO
         if (yesNo == "no") {
@@ -340,6 +372,20 @@ void searchstring::replace() {
     
     else {
         std::cout << "The search phrase was never found. Check spelling or try a different phrase." << std::endl;
+    }
+
+}
+
+
+
+// CHANGE NEWLINES INDEXES FUNCTION
+void searchstring::changeNewline(int rs) {
+
+    int newlineShift = rs - m_ss;
+    for (unsigned int i = 0; i < m_RKIdx.size(); i++) {
+        for (unsigned int j = 0; j < m_writeIdx.size(); j++) {
+            m_writeIdx[j] += newlineShift;
+        }
     }
 
 }
