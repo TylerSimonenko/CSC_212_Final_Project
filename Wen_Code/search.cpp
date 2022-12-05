@@ -21,7 +21,6 @@ void search(char pat[], char txt[], int q)
         t = (d*t + txt[i])%q;
     }
  
-    // Slide the pattern over text one by one
     for (i = 0; i <= N - M; i++)
     {
         if ( p == t )
@@ -32,9 +31,9 @@ void search(char pat[], char txt[], int q)
                     break;
             }
  
-            // if p == t and pat[0...M-1] = txt[i, i+1, ...i+M-1]
+            
             if (j == M)
-                //printf("Pattern found at index %d \n", i);
+                
                 cou++;
         }
  
@@ -48,6 +47,7 @@ void search(char pat[], char txt[], int q)
         }
     }
 }
+rabinkarp search
 void search{ char *txt, char *pat}
  {  
     int m = strlen(pat);
