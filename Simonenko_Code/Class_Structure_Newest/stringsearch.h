@@ -44,7 +44,7 @@ public:
     // Constructor
     searchstring(std::string inputFile, std::string outputFile);
 
-    // Functions called in "main_new.cpp"
+    // Functions called in "main.cpp"
     void runProject();
 
 };
