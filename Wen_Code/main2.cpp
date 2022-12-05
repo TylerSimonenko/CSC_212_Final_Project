@@ -12,8 +12,8 @@ using namespace std;
     
     cout<<"Number of matches of \""<<pat<<"\" is "<<cou<<endl<<"Time taken:"<<elapsed_secs<<endl;
     
-    
-  clock_t t;
+    clock_t t;
+    search
   
   t = clock();
   
