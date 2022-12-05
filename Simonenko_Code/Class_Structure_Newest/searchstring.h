@@ -38,13 +38,14 @@ private:
     void badCharHeuristic();
     void print(int count, std::vector<int> indexes);
     void replace();
+    void changeNewline(int rs);
     void writeFile();   
 
 public:
     // Constructor
     searchstring(std::string inputFile, std::string outputFile);
 
-    // Functions called in "main.cpp"
+    // Functions called in "main_new.cpp"
     void runProject();
 
 };
