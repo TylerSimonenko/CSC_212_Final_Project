@@ -1,5 +1,5 @@
 # CSC 212 Final Project
-## String Search I
+<b>String Search I</b>
 
 
 
