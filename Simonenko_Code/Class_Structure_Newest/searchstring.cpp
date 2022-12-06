@@ -124,7 +124,6 @@ void searchstring::naive() {
 
 // RABIN-KARP ALGORITHM
 void searchstring::rabinKarp() {
-
     // Header printout for algorithm
     std::cout << "\r\n\nRABIN-KARP METHOD" << std::endl;
 
@@ -137,7 +136,6 @@ void searchstring::rabinKarp() {
     for (int i = 0; i < m_ss - 1; i++) {
         h = (h * m_charNum) % m_prime;
     }
-
     // Calculate hash value for "m_search" and "m_text"
     int searchHash = 0;
     int textHash = 0;
@@ -145,7 +143,6 @@ void searchstring::rabinKarp() {
         searchHash = (m_charNum * searchHash + m_search[i]) % m_prime;
         textHash = (m_charNum * textHash + m_text[i]) % m_prime;
     }
-    
     // Do algorithm
     int i, j;
 
@@ -159,7 +156,6 @@ void searchstring::rabinKarp() {
                 if (m_text[i + j] != m_search[j])
                     break;
             }
-
             // Once end of search has been reached
             if (j == m_ss) {
                 // Push index "i" to vector "location"
@@ -167,7 +163,6 @@ void searchstring::rabinKarp() {
                 count++;
             }
         }
-        
         // Rehash next window, remove leading character and add trailing character
         if (i < m_ts - m_ss) {
             // Recalculated hash value of window of "m_text"
@@ -180,10 +175,8 @@ void searchstring::rabinKarp() {
             }    
         }
     }
-
     // Print result
     print(count, m_RKIdx);
-
 }
 
 
