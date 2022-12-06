@@ -155,35 +155,28 @@ void searchstring::rabinKarp() {
         // If search/text hash values match
         if (searchHash == textHash) {
             for (j = 0; j < m_ss; j++) {
-
                 // Check for matching characters one by one
                 if (m_text[i + j] != m_search[j])
                     break;
-            
             }
 
             // Once end of search has been reached
             if (j == m_ss) {
-
                 // Push index "i" to vector "location"
                 m_RKIdx.push_back(i);
                 count++;
-
             }
         }
         
         // Rehash next window, remove leading character and add trailing character
         if (i < m_ts - m_ss) {
-
             // Recalculated hash value of window of "m_text"
             textHash = (m_charNum * (textHash - m_text[i] * h) + m_text[i + m_ss]) % m_prime;
 
             // If hash is negative
             if (textHash < 0) {
-
                 // Make textHash positive
                 textHash = (textHash + m_prime);
-            
             }    
         }
     }
