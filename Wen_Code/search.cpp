@@ -48,6 +48,7 @@ void search(char pat[], char txt[], int q)
     }
 }
 rabinkarp search
+//define m n
 void search{ char *txt, char *pat}
  {  
     int m = strlen(pat);
