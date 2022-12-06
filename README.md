@@ -1,4 +1,4 @@
-# **CSC 212 Final Project**
+# **CSC 212 - Final Project**
 *Data Structures and Algorithms: String Search I*
 
 General Information:
