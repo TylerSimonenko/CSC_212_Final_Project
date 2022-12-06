@@ -1,8 +1,8 @@
 # CSC 212 Final Project
-<b>String Search I</b>
+<b>Data Structures and Algorithms: String Search I</b>
 
 
-
+Add information.
 
 
 This is another line.
