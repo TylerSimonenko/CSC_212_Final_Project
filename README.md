@@ -2,7 +2,7 @@
 <b>Data Structures and Algorithms: String Search I</b>
 
 
-Add information.
+*Add information.*
 
 
 This is another line.
