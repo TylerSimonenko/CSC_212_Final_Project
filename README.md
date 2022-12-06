@@ -1,2 +1,8 @@
-# CSC_212_Final_Project
-CSC 212 Final Term Project - String Search I
+# CSC 212 Final Project
+## String Search I
+
+
+
+
+
+This is another line.
