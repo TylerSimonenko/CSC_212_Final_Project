@@ -1,7 +1,8 @@
 # **CSC 212 - Final Project**
 *Data Structures and Algorithms: String Search I*
 
-General Information:
+
+**General Information:**
 
 The group's final term project was to implement two different *string search* algorithms. These two algorithms, the **Rabin-Karp** method and the **Boyer-Moore** method, were implemented using general C++ data structures - mostly vectors and strings. To show more in depth analysis, the two algorithms mentioned were compared with the **Brute Force** method, also known as the **Naive Method** - this method is a much simpler and time inefficient approach to String Search, and had been implemented to provide a "baseline" of how quickly the other two algorithms should run. 
 
@@ -13,7 +14,3 @@ The code has been implemented in class/header structure, with each string algori
 
 
 The full functionality of the project is not entirely complete. While it is absolutely true that the **implementation of the three algorithms is successful**, the specific use case regarding certain text formatting can result in unwanted formatting issues. For example: The "find" functionality will always work, no matter the formatting of the input .txt file. Similarly, the "replace" functionality will also work, successfully replacing each occurrence of a given search phrase with a replacement phrase defined by the user. The replacement phrase need not be the same size as the search string, nor must it disallow whitespaces - if the user were to replace a search phrase "the" with the replacement phrase "THIS IS A NEW PHRASE", the algorithm completes this task. The issues lie in the "writeFile" formatting when reading in a text file that includes multiple newlines. For a single-line text file, the "writeFile" function works as intended. and the formatting of the original input file is preserved. Adversely, if the user reads in a text file that includes multiple newlines, AND the user would like to replace a search phrase with a replacement phrase of a different size, the **ooutput formatting** is the only thing that falters, and the formatting of the original text file is not preserved. It can be observed that both the "find" phrase and "replace" phrase funcionality works as intended.
-
-
-
-
